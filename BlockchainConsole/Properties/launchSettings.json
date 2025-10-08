@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BlockchainConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Jeremy\\Documents\\Visual Studio 2019\\Projects\\BlockchainApp\\BlockchainApp\\transactions.json\" \"C:\\Users\\Jeremy\\Documents\\Visual Studio 2019\\Projects\\BlockchainApp\\BlockchainApp\\blockchain.json\" \"WebApp\""
+    }
+  }
+}

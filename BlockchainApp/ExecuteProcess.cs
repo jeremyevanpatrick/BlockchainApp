@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace BlockchainApp
@@ -32,6 +33,7 @@ namespace BlockchainApp
             p.StartInfo.RedirectStandardError = true;
             p.StartInfo.FileName = Command;
             p.StartInfo.Arguments = Arguments;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(p.StartInfo.FileName);
 
             outputLines = new List<string>();
 

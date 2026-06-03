@@ -2,7 +2,10 @@
   "profiles": {
     "BlockchainConsole": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\Jeremy\\Documents\\Visual Studio 2019\\Projects\\BlockchainApp\\BlockchainApp\\transactions.json\" \"C:\\Users\\Jeremy\\Documents\\Visual Studio 2019\\Projects\\BlockchainApp\\BlockchainApp\\blockchain.json\" \"WebApp\""
+      "commandLineArgs": "\"..\\..\\..\\..\\BlockchainApp\\Downloads\\transactions.json\" \"..\\..\\..\\..\\BlockchainApp\\Downloads\\blockchain.json\" \"WebApp\""
+    },
+    "BlockchainConsoleNoParams": {
+      "commandName": "Project"
     }
   }
 }

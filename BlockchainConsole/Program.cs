@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Configuration;
 
 namespace BlockchainConsole
 {
@@ -59,12 +60,16 @@ namespace BlockchainConsole
 
             if (string.IsNullOrEmpty(transactionsPath))
             {
-                transactionsPath = System.Configuration.ConfigurationManager.AppSettings["TransactionsPath"];
+                transactionsPath = Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory,
+                    ConfigurationManager.AppSettings["TransactionsPath"]);
             }
 
             if (string.IsNullOrEmpty(blockchainStoragePath))
             {
-                transactionsPath = System.Configuration.ConfigurationManager.AppSettings["BlockchainStoragePath"];
+                blockchainStoragePath = Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory, 
+                    ConfigurationManager.AppSettings["BlockchainStoragePath"]);
             }
 
             BlockChain chain = null;

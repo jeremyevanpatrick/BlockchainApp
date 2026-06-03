@@ -1,0 +1,57 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+- task: NuGetCommand@2
+  displayName: Restore
+  inputs:
+    restoreSolution: '**/BlockchainApp.sln'
+- task: VSBuild@1
+  displayName: Build Web Forms App
+  inputs:
+    solution: '**/BlockchainApp.sln'
+    platform: 'Any CPU'
+    configuration: '$(buildConfiguration)'
+- task: VSBuild@1
+  displayName: Publish Web Forms App
+  inputs:
+    solution: '**/BlockchainApp/BlockchainApp.csproj'
+    platform: 'Any CPU'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: >
+      /p:DeployOnBuild=true
+      /p:WebPublishMethod=FileSystem
+      /p:publishUrl=$(Build.ArtifactStagingDirectory)
+      /p:DeleteExistingFiles=true
+- task: UseDotNet@2
+  displayName: Install .NET SDK
+  inputs:
+    packageType: 'sdk'
+    version: '5.0.x'
+- task: DotNetCoreCLI@2
+  displayName: Publish Console App
+  inputs:
+    command: 'publish'
+    projects: '**/BlockchainConsole.csproj'
+    arguments: >
+      --configuration $(buildConfiguration)
+      --output $(Build.ArtifactStagingDirectory)\Tools
+      /p:PublishSingleFile=false
+- task: CopyFiles@2
+  displayName: Copy Transactions File
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\BlockchainApp\Downloads'
+    Contents: 'transactions.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Downloads'
+- task: PublishPipelineArtifact@1
+  displayName: Publish Artifact
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'BlockchainApp'

@@ -51,7 +51,7 @@
                         $("#startBtn").removeClass("disabled");
                     }
 
-                    $("#blockchainLink").attr("href", "blockchain.json?t=" + Date.now());
+                    $("#blockchainLink").attr("href", "Downloads/blockchain.json?t=" + Date.now());
 
                 });
         }
@@ -72,7 +72,7 @@
                 <div class="col-12">
                     <h5>Input Data</h5>
                     <div class="card py-2 px-3">
-                        <a href="transactions.json" target="_blank">transactions.json</a>
+                        <a href="Downloads/transactions.json" target="_blank">transactions.json</a>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                 <div class="col-12">
                     <h5>Output Data</h5>
                     <div class="card py-2 px-3">
-                        <a id="blockchainLink" href="blockchain.json" target="_blank">blockchain.json</a>
+                        <a id="blockchainLink" href="Downloads/blockchain.json" target="_blank">blockchain.json</a>
                     </div>
                 </div>
             </div>

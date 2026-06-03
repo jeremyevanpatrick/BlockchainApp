@@ -2,12 +2,20 @@
 
 <%@ Import Namespace="BlockchainApp" %>
 <%@ Import Namespace="System.Diagnostics" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Configuration" %>
 
 <script runat="server">
     
-    public static string blockchainConsolePath = System.Configuration.ConfigurationManager.AppSettings["BlockchainConsolePath"];
-    public static string transactionsPath = System.Configuration.ConfigurationManager.AppSettings["TransactionsPath"];
-    public static string blockchainStoragePath = System.Configuration.ConfigurationManager.AppSettings["BlockchainStoragePath"];
+    public static string blockchainConsolePath =>
+        Path.Combine(
+            AppDomain.CurrentDomain.BaseDirectory,
+            ConfigurationManager.AppSettings["BlockchainConsolePath"]);
+
+    public static string transactionsPath => ConfigurationManager.AppSettings["TransactionsPath"];
+
+    public static string blockchainStoragePath => ConfigurationManager.AppSettings["BlockchainStoragePath"];
+
     public static string applicationName = "WebApp";
 
     private static Dictionary<string, ExecuteProcess> processes = new Dictionary<string, ExecuteProcess>();

@@ -426,3 +426,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/BlockchainApp/Tools/BlockchainConsole.dll.config
+/BlockchainApp/Tools/BlockchainConsole.exe
+/BlockchainApp/Tools/BlockchainConsole.pdb
+/BlockchainApp/Tools/clrcompression.dll
+/BlockchainApp/Tools/clrjit.dll
+/BlockchainApp/Tools/coreclr.dll
+/BlockchainApp/Tools/mscordaccore.dll

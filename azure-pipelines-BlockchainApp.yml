@@ -9,27 +9,19 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+
 - task: NuGetCommand@2
-  displayName: Restore
+  displayName: Restore NuGet Packages
   inputs:
-    restoreSolution: '**/BlockchainApp.sln'
+    command: 'restore'
+    restoreSolution: 'BlockchainApp.sln'
+
 - task: VSBuild@1
-  displayName: Build Web Forms App
+  displayName: Build Solution
   inputs:
-    solution: '**/BlockchainApp.sln'
+    solution: 'BlockchainApp.sln'
     platform: 'Any CPU'
     configuration: '$(buildConfiguration)'
-- task: VSBuild@1
-  displayName: Publish Web Forms App
-  inputs:
-    solution: '**/BlockchainApp/BlockchainApp.csproj'
-    platform: 'Any CPU'
-    configuration: '$(buildConfiguration)'
-    msbuildArgs: >
-      /p:DeployOnBuild=true
-      /p:WebPublishMethod=FileSystem
-      /p:publishUrl=$(Build.ArtifactStagingDirectory)
-      /p:DeleteExistingFiles=true
 - task: UseDotNet@2
   displayName: Install .NET SDK
   inputs:

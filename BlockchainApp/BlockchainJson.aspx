@@ -14,7 +14,7 @@
         string fullPath =
             Path.IsPathRooted(blockchainStoragePath)
                 ? blockchainStoragePath
-                : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, blockchainStoragePath);
+                : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", blockchainStoragePath);
 
         Response.Clear();
         Response.ContentType = "application/json";

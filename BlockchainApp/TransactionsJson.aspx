@@ -14,7 +14,7 @@
         string fullPath =
             Path.IsPathRooted(transactionsPath)
                 ? transactionsPath
-                : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, transactionsPath);
+                : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", transactionsPath);
 
         Response.Clear();
         Response.ContentType = "application/json";

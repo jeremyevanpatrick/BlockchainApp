@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TransactionsJson.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -102,10 +103,18 @@
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="BlockchainJson.aspx" />
     <Content Include="StartBlockchain.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransactionsJson.aspx.cs">
+      <DependentUpon>TransactionsJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionsJson.aspx.designer.cs">
+      <DependentUpon>TransactionsJson.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,6 +124,13 @@
     </Compile>
     <Compile Include="ExecuteProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BlockchainJson.aspx.cs">
+      <DependentUpon>BlockchainJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlockchainJson.aspx.designer.cs">
+      <DependentUpon>BlockchainJson.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StartBlockchain.aspx.cs">
       <DependentUpon>StartBlockchain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

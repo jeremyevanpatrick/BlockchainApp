@@ -32,15 +32,20 @@ steps:
     packageType: 'sdk'
     version: '5.0.x'
 - task: DotNetCoreCLI@2
-  displayName: Publish Console App
+  displayName: Restore Console App
   inputs:
-    command: 'publish'
-    publishWebProjects: false
+    command: restore
     projects: 'BlockchainConsole/BlockchainConsole.csproj'
-    arguments: >
-      --configuration $(buildConfiguration)
-      --output $(Build.ArtifactStagingDirectory)\Tools
-      /p:PublishSingleFile=false
+- task: PowerShell@2
+  displayName: "Publish Console App"
+  inputs:
+    targetType: inline
+    script: |
+      dotnet publish BlockchainConsole/BlockchainConsole.csproj `
+        -c $(buildConfiguration) `
+        -r win-x64 `
+        --self-contained true `
+        --output "$(Build.ArtifactStagingDirectory)\Tools"
 - task: CopyFiles@2
   displayName: Copy Transactions File
   inputs:
